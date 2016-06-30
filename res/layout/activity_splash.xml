@@ -18,14 +18,14 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_splash_version"
         android:layout_centerHorizontal="true" />
-    
+
     <TextView
         android:id="@+id/tv_splash_update_progress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_below="@+id/progressBar1"
-        android:visibility="invisible"/>
+        android:layout_marginBottom="28dp"
+        android:visibility="invisible" />
 
 </RelativeLayout>

@@ -24,6 +24,7 @@ import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -65,8 +66,18 @@ public class SplashActivity extends ActionBarActivity {
 			//设置版本信息控件显示系统版本
 			tv_splash_version.setText(versionName1);
 			
-			//获取软件更新信息
-			systemUpdate();
+			SharedPreferences sharedPreferences = getSharedPreferences("config", MODE_PRIVATE);
+			if(sharedPreferences.getBoolean("update", true)){
+				//获取软件更新信息
+				systemUpdate();
+			}else {
+				new Thread(){
+					public void run() {
+						SystemClock.sleep(2000);
+						enterHome();
+					}
+				}.start();
+			}
 		} catch (NameNotFoundException e) {
 			e.printStackTrace();
 		}
@@ -156,7 +167,7 @@ public class SplashActivity extends ActionBarActivity {
 	 * @param des2
 	 */
 	protected void showUpdateDialog(String string, String des2) {
-		Builder builder = new AlertDialog.Builder(getApplicationContext());
+		AlertDialog.Builder builder = new Builder(SplashActivity.this);
 		builder.setTitle(string);
 		builder.setMessage(des2);
 		
@@ -175,6 +186,8 @@ public class SplashActivity extends ActionBarActivity {
 				download(apkurl);
 			}
 		});
+		
+		builder.show();
 	}
 	
 	/**
@@ -207,7 +220,7 @@ public class SplashActivity extends ActionBarActivity {
 
 			@Override
 			public void onStart() {
-				tv_splash_update_progress.setVisibility(View.INVISIBLE);
+				tv_splash_update_progress.setVisibility(View.VISIBLE);
 			}
 		});
 	}

@@ -15,14 +15,18 @@
 	    android:background="#aaff0088"
 	    android:gravity="center_horizontal"/>
 	
-	<TextView 
+	<com.zxj.mobilesafe.view.FocusTextView 
 	    android:layout_width="match_parent"
     	android:layout_height="wrap_content"
     	android:text="@string/system_notice"
 	    android:textSize="12sp"
 	    android:textColor="#000"
 	    android:layout_marginTop="10dp"
-	    android:singleLine="true"/>
+	    android:singleLine="true"
+	    android:ellipsize="marquee"
+	    android:focusable="true"
+	    android:focusableInTouchMode="true"
+	    android:marqueeRepeatLimit="marquee_forever"/>
 	
 	<GridView
 	    android:id="@+id/gv_home_menu"

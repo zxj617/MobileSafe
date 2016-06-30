@@ -25,6 +25,7 @@
             </intent-filter>
         </activity>
         <activity android:name="com.zxj.mobilesafe.activity.HomeActivity"></activity>
+        <activity android:name="com.zxj.mobilesafe.activity.SystemSetActivity"></activity>
     </application>
 
 </manifest>
