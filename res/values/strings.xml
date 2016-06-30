@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">手机卫士</string>
+
+    <string name="system_menu">系统菜单</string>
+
+    <string name="system_notice">手机卫士第一版本上线，欢迎使用，请多提出宝贵意见，以便我们进行改进！</string>
+</resources>
